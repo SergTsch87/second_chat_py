@@ -32,3 +32,28 @@ server.bind((IP_address, Port))
 server.listen(100)
 
 list_of_clients = []
+
+def clientthread(conn, addr):
+    # sends a message to the client whose user object is conn
+    conn.send("Welcome to the chatroom!")
+
+    while True:
+        try:
+            message = conn.recv(2048)
+            if message:
+                 """prints the message and address of the
+                    user who just sent the message on the server
+                    terminal"""
+                 print(f"<{addr[0]}> {message}")
+
+                #  Calls broadcast function to send message to all
+                message_to_send = f"<{addr[0]}> {message}"
+                broadcast(message_to_send, conn)
+            
+            else:
+                """message may have no content if the connection
+                    is broken, in this case we remove the connection"""
+                remove(conn)
+        
+        except:
+            continue
