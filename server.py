@@ -41,10 +41,10 @@ def clientthread(conn, addr):
         try:
             message = conn.recv(2048)
             if message:
-                 """prints the message and address of the
+                """prints the message and address of the
                     user who just sent the message on the server
                     terminal"""
-                 print(f"<{addr[0]}> {message}")
+                print(f"<{addr[0]}> {message}")
 
                 #  Calls broadcast function to send message to all
                 message_to_send = f"<{addr[0]}> {message}"
