@@ -72,3 +72,11 @@ def broadcast(message, connection):
 
                 #  if the link is broken, we remove the client
                 remove(clients)
+
+
+"""The following function simply removes the object
+from the list that was created at the beginning of
+the program"""
+def remove(connection):
+    if connection in list_of_clients:
+        list_of_clients.remove(connection)
