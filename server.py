@@ -57,3 +57,18 @@ def clientthread(conn, addr):
         
         except:
             continue
+
+
+"""Using the below function, we broadcast the message to all
+clients who's object is not the same as the one sending
+the message """
+def broadcast(message, connection):
+    for clients in list_of_clients:
+        if clients != connection:
+            try:
+                clients.send(message)
+            except:
+                clients.close()
+
+                #  if the link is broken, we remove the client
+                remove(clients)
