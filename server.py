@@ -10,3 +10,8 @@ SOCK_STREAM means that data or characters are read in
 a continuous flow."""
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+
+# checks whether sufficient arguments have been provided
+if len(sys.argv) != 3:
+    print("Correct usage: script, IP address, port number")
+    exit()
