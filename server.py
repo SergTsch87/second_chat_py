@@ -18,3 +18,7 @@ if len(sys.argv) != 3:
 
 # takes the first argument from command prompt as IP address
 IP_address = str(sys.argv[1])
+
+# takes second argument from command prompt as port number
+Port = int(sys.argv[2])
+
