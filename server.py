@@ -26,3 +26,9 @@ Port = int(sys.argv[2])
 # specified port number.
 # The client must be aware of these parameters
 server.bind((IP_address, Port))
+
+# listens for 100 active connections. This number can be
+# increased as per convenience.
+server.listen(100)
+
+list_of_clients = []
